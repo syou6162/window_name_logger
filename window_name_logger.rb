@@ -15,11 +15,12 @@ exit if sleep_time > 300
 frontmost = Appscript.app('System Events').application_processes.get.select{ |a| a.frontmost.get }.first
 
 if frontmost
-  result["application"] = frontmost.name.get.to_s
+  result["application"] = frontmost.name.get.to_s.force_encoding("UTF-8")
   if frontmost.windows.count > 0
     window = frontmost.windows.first
-    result["window_name"] = window.name.get.to_s
+    result["window_name"] = window.name.get.to_s.force_encoding("UTF-8")
   end
 end
 
+STDERR.puts Time.now.to_s
 puts result.to_json
