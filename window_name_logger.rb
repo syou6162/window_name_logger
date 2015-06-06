@@ -10,7 +10,7 @@ result["date"] = Time.now.to_s
 STDERR.puts Time.now.to_s
 
 sleep_time=`ioreg -c IOHIDSystem | perl -ane 'if (/Idle/) {$idle=(pop @F)/1000000000; print $idle,"\n"; last}'`.to_f
-exit if sleep_time > 300
+exit if sleep_time > 30
 
 frontmost = Appscript.app('System Events').application_processes.get.select{ |a| a.frontmost.get }.first
 
