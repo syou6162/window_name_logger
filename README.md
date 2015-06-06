@@ -16,3 +16,17 @@ ruby window_name_logger.rb |
     echo "{ \"index\" : { \"_index\" : \"window_name\", \"_type\" : \"window_name\", \"_id\" : ${id}} }\n$line" | curl -XPOST localhost:9200/_bulk --data-binary @-
   done
 ```
+
+remoteでは
+
+```
+watch -n 60 'ruby window_name_logger.rb >> `date +%Y-%m-%d`.json'
+```
+
+と
+
+```
+ruby window_name_log_to_dropbox.rb `date +%Y-%m-%d`.json
+```
+
+をしておくこと。
