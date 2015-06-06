@@ -20,13 +20,13 @@ ruby window_name_logger.rb |
 remoteでは
 
 ```
-watch -n 60 'ruby window_name_logger.rb >> `date +%Y-%m-%d`.json'
+watch -n 60 'ruby window_name_logger.rb >> `date +%Y-%m-%d`_`hostname`.json'
 ```
 
 と
 
 ```
-ruby window_name_log_to_dropbox.rb `date +%Y-%m-%d`.json
+ruby window_name_log_to_dropbox.rb `date +%Y-%m-%d`_`hostname`.json
 ```
 
 をしておくこと。
